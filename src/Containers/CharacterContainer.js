@@ -7,7 +7,7 @@ export default class CharacterContainer extends Component {
   
 
   characterTiles=()=>{
-     return this.props.characters.map(character=>
+     return this.props.filterCharacters.map(character=>
      <CharacterCard key={character.id} editInputValue={this.props.editInputValue} 
                     setEditInput={this.props.setEditInput} character={character}
                     clickHandlerForHouseChange={this.props.clickHandlerForHouseChange}/>);

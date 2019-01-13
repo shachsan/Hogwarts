@@ -11,6 +11,7 @@ class App extends Component {
 
     this.state=({
       characters:[],
+      filterCharacters:[],
       houses:[],
       editInputValue:'',
       searchValue:'',
@@ -23,7 +24,7 @@ class App extends Component {
     this.setState({searchValue:e.target.value})
     const newCharacters=[...this.state.characters].filter(character=>
       (character.name.toLowerCase().includes(e.target.value.toLowerCase()) || character.house.toLowerCase().includes(e.target.value.toLowerCase())))
-    this.setState({characters:newCharacters})
+    this.setState({filterCharacters:newCharacters})
   }
 
   clickHandlerForHouseChange=(e, char) => {
@@ -47,7 +48,7 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:3001/characters')
       .then(res=>res.json())
-      .then(characters=>this.setState({characters:characters}))
+      .then(characters=>this.setState({characters:characters, filterCharacters:characters}))
 
     fetch('http://localhost:3001/houses')
       .then(res=>res.json())
@@ -60,7 +61,7 @@ class App extends Component {
         <div className="character-nav-wrap">
           <CharacterContainer className='class-container' setEditInput={this.setEditInput} 
                               editInputValue={this.state.editInputValue} 
-                              characters={this.state.characters}
+                              filterCharacters={this.state.filterCharacters}
                               clickHandlerForHouseChange={this.clickHandlerForHouseChange}/>
           <NavContainer searchChgHandler={this.searchChgHandler} searchValue={this.state.searchValue}/>
         </div>
