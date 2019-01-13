@@ -100,6 +100,7 @@ class App extends Component {
           <NavContainer searchChgHandler={this.searchChgHandler} searchValue={this.state.searchValue} 
                         addCharacterHandler={this.addCharacterHandler}
                         formInputs={this.state.formInputs} setFormInputs={this.setFormInputs}/>
+                        
         </div>
 
         <div className="houseContainer">

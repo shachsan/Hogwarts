@@ -27,9 +27,12 @@
 }
 
 .nav-wrapper{
-  width:40%;
+  width:25%;
   float: right;
   display: block;
+}
+.nav-wrapper form input{
+  width:100%
 }
 
 .list {

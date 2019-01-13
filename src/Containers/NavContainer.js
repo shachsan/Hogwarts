@@ -9,8 +9,7 @@ export default class NavContainer extends Component{
                 <Search searchChgHandler={this.props.searchChgHandler} searchValue={this.props.searchValue} />
                 <AddCharacter addCharacterHandler={this.props.addCharacterHandler}
                               formInputs={this.props.formInputs}
-                              setFormInputs={this.props.setFormInputs}
-                />
+                            setFormInputs={this.props.setFormInputs}/>
             </div>
         )
     }
