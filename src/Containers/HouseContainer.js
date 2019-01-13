@@ -10,16 +10,10 @@ export default class HouseContainer extends React.Component {
 
   render() {
     return (
-      <div className="houseContainer">
         <div>
           <p>House</p>
           {this.houseCard()}
         </div>
-
-        <div>
-
-        </div>
-      </div>
     )
   }
 }

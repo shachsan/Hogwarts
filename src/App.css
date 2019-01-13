@@ -12,6 +12,13 @@
   height: 100%;
 }
 
+.character-nav-wrap{
+  vertical-align: top;
+  height: 90%;
+  width: 100%;
+  
+}
+
 .class-container {
   position: relative;
   top: 5%;
@@ -20,9 +27,9 @@
 }
 
 .nav-wrapper{
-  width:25%;
+  width:40%;
   float: right;
-  display: inline-block;
+  display: block;
 }
 
 .list {

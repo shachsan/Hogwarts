@@ -13,7 +13,17 @@ class App extends Component {
       characters:[],
       houses:[],
       editInputValue:'',
+      searchValue:'',
     })
+  }
+
+  searchChgHandler = (e) => {
+    console.log("e.target",e.target.value);
+    console.log("state",this.state.searchValue);
+    this.setState({searchValue:e.target.value})
+    const newCharacters=[...this.state.characters].filter(character=>
+      (character.name.toLowerCase().includes(e.target.value.toLowerCase()) || character.house.toLowerCase().includes(e.target.value.toLowerCase())))
+    this.setState({characters:newCharacters})
   }
 
   clickHandlerForHouseChange=(e, char) => {
@@ -25,7 +35,7 @@ class App extends Component {
     })
 
     this.setState({characters:newChars})
-    
+
   }
 
   setEditInput =(e) => {
@@ -45,15 +55,19 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.houses);
     return (
       <div className="app">
-        <CharacterContainer className='class-container' setEditInput={this.setEditInput} 
-                            editInputValue={this.state.editInputValue} 
-                            characters={this.state.characters}
-                            clickHandlerForHouseChange={this.clickHandlerForHouseChange}/>
-        <NavContainer />
-        <HouseContainer houses={this.state.houses} characters={this.state.characters}/>
+        <div className="character-nav-wrap">
+          <CharacterContainer className='class-container' setEditInput={this.setEditInput} 
+                              editInputValue={this.state.editInputValue} 
+                              characters={this.state.characters}
+                              clickHandlerForHouseChange={this.clickHandlerForHouseChange}/>
+          <NavContainer searchChgHandler={this.searchChgHandler} searchValue={this.state.searchValue}/>
+        </div>
+
+        <div className="houseContainer">
+          <HouseContainer houses={this.state.houses} characters={this.state.characters}/>
+        </div>
 
       </div>
     );
