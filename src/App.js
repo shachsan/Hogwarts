@@ -15,7 +15,37 @@ class App extends Component {
       houses:[],
       editInputValue:'',
       searchValue:'',
+      formInputs:{
+        name:'',
+        age:'',
+        house:'',
+        roll:'',
+        image1:'',
+        image2:'',
+      }
     })
+  }
+
+  setFormInputs=(e) => {
+    const newFormInputs={...this.state.formInputs}
+    newFormInputs[e.target.name]=e.target.value
+    this.setState({
+      formInputs:newFormInputs
+
+    })
+  }
+
+  addCharacterHandler=(e) => {
+    e.preventDefault();
+    // console.log(e.target.house.value);
+    this.setState({
+      filterCharacters:[this.state.formInputs, ...this.state.characters],
+      characters:[this.state.formInputs, ...this.state.characters],
+      // characters:filterCharacters
+      houses:[...this.state.houses, e.target.house.value]
+      
+    })
+    console.log(this.state.formInputs)
   }
 
   searchChgHandler = (e) => {
@@ -29,13 +59,17 @@ class App extends Component {
 
   clickHandlerForHouseChange=(e, char) => {
     e.preventDefault();
+    console.log(e.target.newHouse.value);
     const newChars = [...this.state.characters]
     newChars.forEach(character=>{
       if(character===char)
         character.house=this.state.editInputValue;
     })
 
-    this.setState({characters:newChars})
+    this.setState({
+      characters:newChars,
+      houses:[...this.state.houses, e.target.newHouse.value]
+      })
 
   }
 
@@ -63,7 +97,9 @@ class App extends Component {
                               editInputValue={this.state.editInputValue} 
                               filterCharacters={this.state.filterCharacters}
                               clickHandlerForHouseChange={this.clickHandlerForHouseChange}/>
-          <NavContainer searchChgHandler={this.searchChgHandler} searchValue={this.state.searchValue}/>
+          <NavContainer searchChgHandler={this.searchChgHandler} searchValue={this.state.searchValue} 
+                        addCharacterHandler={this.addCharacterHandler}
+                        formInputs={this.state.formInputs} setFormInputs={this.setFormInputs}/>
         </div>
 
         <div className="houseContainer">

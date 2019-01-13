@@ -7,7 +7,10 @@ export default class NavContainer extends Component{
         return(
             <div className='nav-wrapper'>
                 <Search searchChgHandler={this.props.searchChgHandler} searchValue={this.props.searchValue} />
-                <AddCharacter />
+                <AddCharacter addCharacterHandler={this.props.addCharacterHandler}
+                              formInputs={this.props.formInputs}
+                              setFormInputs={this.props.setFormInputs}
+                />
             </div>
         )
     }
