@@ -3,8 +3,29 @@ import React from "react";
 class House extends React.Component{
   state={
     houseImageClicked:false,
-    character:''
+    character:'',
+    toggleEdit:false
   }
+
+
+  setToggleEdit=() => {
+    this.setState({
+      toggleEdit:!this.state.toggleEdit
+    })
+  }
+
+changeHouse=(character) => {
+  return (
+      <form onSubmit={(e)=>{this.props.clickHandlerForHouseChange(e,character); this.setToggleEdit();}}>
+        <label>Enter New House:</label>
+        {console.log(this)}
+        <input type='text' name='newHouse'
+                value={this.props.editInputValue} 
+                onChange={(e)=>this.props.setEditInput(e)}/>
+        <input type='submit' value='Update'/>
+      </form>
+  )
+}
 
 setHouseImgClicked=(e,character) => {
   this.setState({
@@ -38,7 +59,9 @@ render(){
                     <li>Name:{this.state.character.name}</li>
                     <li>Age:{this.state.character.age}</li>
                     <li>Role:{this.state.character.role}</li>
-                    <li><a href="#">House:{this.state.character.house}</a></li>
+                    <li><a href="#" onClick={()=>this.setToggleEdit()}>House:{this.state.character.house}</a></li>
+                    {this.state.toggleEdit ? this.changeHouse(this.state.character) : null }
+
                 </ul> : null
               }
           

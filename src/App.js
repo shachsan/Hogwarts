@@ -119,6 +119,7 @@ class App extends Component {
                               editInputValue={this.state.editInputValue} 
                               filterCharacters={this.state.filterCharacters}
                               clickHandlerForHouseChange={this.clickHandlerForHouseChange}/>
+                              
           <NavContainer searchChgHandler={this.searchChgHandler} searchValue={this.state.searchValue} 
                         addCharacterHandler={this.addCharacterHandler}
                         formInputs={this.state.formInputs} setFormInputs={this.setFormInputs}/>
@@ -126,7 +127,10 @@ class App extends Component {
         </div>
 
         <div className="houseContainer">
-          <HouseContainer houses={this.state.houses} characters={this.state.characters}/>
+          <HouseContainer houses={this.state.houses} characters={this.state.characters} 
+                          setEditInput={this.setEditInput} 
+                          editInputValue={this.state.editInputValue}
+                          clickHandlerForHouseChange={this.clickHandlerForHouseChange}/>
         </div>
 
       </div>

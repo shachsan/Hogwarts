@@ -5,7 +5,11 @@ export default class HouseContainer extends React.Component {
 
 
   houseCard=() => {
-  return this.props.houses.map(house=><House key={house} house={house} characters={this.props.characters}/>)
+    return this.props.houses.map(house=>
+        <House key={house} house={house} characters={this.props.characters}
+               editInputValue={this.props.editInputValue} 
+               setEditInput={this.props.setEditInput}
+               clickHandlerForHouseChange={this.props.clickHandlerForHouseChange}/>)
   }
 
   render() {
