@@ -45,7 +45,7 @@ class App extends Component {
     })
     
     const data=this.state.formInputs;
-    const house=data.house;
+    // const house=data.house;
     
     console.log(this.state.formInputs.keys);
     this.setState({
@@ -64,13 +64,13 @@ class App extends Component {
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(data)
     })
-    // .then(()=>{
-        fetch('http://localhost:3001/houses',{
-        method: 'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(house)
-      })
-    // })
+    // // .then(()=>{
+    //     fetch('http://localhost:3001/houses',{
+    //     method: 'POST',
+    //     headers:{'Content-Type':'application/json'},
+    //     body:JSON.stringify(house)
+    //   })
+    // // })
 
   }
 
@@ -100,7 +100,7 @@ class App extends Component {
             body:JSON.stringify({
               house:this.state.editInputValue
             })
-        })
+        }).then(()=>this.setState({editInputValue:''}))
 
   }
 
