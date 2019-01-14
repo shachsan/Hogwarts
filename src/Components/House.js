@@ -21,7 +21,8 @@ changeHouse=(character) => {
         {console.log(this)}
         <input type='text' name='newHouse'
                 value={this.props.editInputValue} 
-                onChange={(e)=>this.props.setEditInput(e)}/>
+                onChange={(e)=>this.props.setEditInput(e)}
+                autoFocus/>
         <input type='submit' value='Update'/>
       </form>
   )

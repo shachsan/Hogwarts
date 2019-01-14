@@ -38,28 +38,39 @@ class App extends Component {
 
   addCharacterHandler=async(e) => {
     e.preventDefault();
-    // console.log(e.target.house.value);
     await this.setState({
       filterCharacters:[this.state.formInputs, ...this.state.characters],
       characters:[this.state.formInputs, ...this.state.characters],
-      // characters:filterCharacters
       houses:[...this.state.houses, e.target.house.value]
     })
     
     const data=this.state.formInputs;
     const house=data.house;
-    console.log(house);
+    
+    console.log(this.state.formInputs.keys);
+    this.setState({
+      formInputs:{
+        name:'',
+        age:'',
+        house:'',
+        roll:'',
+        image1:'',
+        image2:'',
+      }
+    })
+
     fetch('http://localhost:3001/characters',{
       method: 'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(data)
-    }).then(()=>{
+    })
+    // .then(()=>{
         fetch('http://localhost:3001/houses',{
         method: 'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(house)
       })
-    })
+    // })
 
   }
 
@@ -80,8 +91,16 @@ class App extends Component {
 
     this.setState({
       characters:newChars,
-      houses:[...this.state.houses, e.target.newHouse.value]
+      // houses:[...this.state.houses, e.target.newHouse.value]
       })
+
+      fetch(`http://localhost:3001/characters/${char.id}`,{
+            method: 'PATCH',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+              house:this.state.editInputValue
+            })
+        })
 
   }
 
@@ -91,15 +110,6 @@ class App extends Component {
     })
   }
 
-  componentDidUpdate(prevProps, prevStates){
-    // const data=prevStates.formInputs;
-    // if(data!==)
-  //   fetch('http://localhost:3001/characters',{
-  //     method:'POST',
-  //     headers:{'Content-Tpye':'application/json'},
-  //     body:JSON.stringify({data})
-  //   })
-  }
 
   componentDidMount() {
     fetch('http://localhost:3001/characters')
