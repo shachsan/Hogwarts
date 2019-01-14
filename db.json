@@ -53,7 +53,39 @@
       "role": "professor",
       "image1": "https://fsmedia.imgix.net/21/fd/33/16/2844/4ec3/bae9/57d38001e216/sonserina.jpeg?rect=0%2C0%2C1920%2C959&dpr=2&auto=format%2Ccompress&w=650",
       "image2": "https://imgix.bustle.com/rehost/2016/9/13/4685a819-e442-4e36-af5b-9c8c42bfbf00.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70"
+    },
+    {
+      "name": "hello",
+      "age": "29",
+      "house": "hello",
+      "roll": "hello",
+      "image1": "hello",
+      "image2": "hello",
+      "id": 7
+    },
+    {
+      "name": "ouou",
+      "age": "99",
+      "house": "ljslfj",
+      "roll": "iyweiry",
+      "image1": "jljdj",
+      "image2": "huwhu",
+      "id": 8
+    },
+    {
+      "name": "uwou",
+      "age": "88",
+      "house": "jljlsdf",
+      "roll": "ldjflj",
+      "image1": "hdhfh",
+      "image2": "dlfjdj",
+      "id": 9
     }
   ],
-  "houses": ["Gryffindor", "Slytherin", "HufflePuff", "Ravenclaw"]
+  "houses": [
+    "Gryffindor",
+    "Slytherin",
+    "HufflePuff",
+    "Ravenclaw"
+  ]
 }

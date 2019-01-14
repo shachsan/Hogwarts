@@ -10,8 +10,8 @@ export default class HouseContainer extends React.Component {
 
   render() {
     return (
-        <div>
-          <p>House</p>
+        <div className='house-container'>
+          <h1 className='house-header' style={{backgroundColor:'#003366'}}>H O U S E S</h1>
           {this.houseCard()}
         </div>
     )

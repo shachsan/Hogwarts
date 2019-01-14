@@ -28,6 +28,7 @@ class App extends Component {
 
   setFormInputs=(e) => {
     const newFormInputs={...this.state.formInputs}
+    console.log('newFormINputs',newFormInputs);
     newFormInputs[e.target.name]=e.target.value
     this.setState({
       formInputs:newFormInputs
@@ -35,22 +36,34 @@ class App extends Component {
     })
   }
 
-  addCharacterHandler=(e) => {
+  addCharacterHandler=async(e) => {
     e.preventDefault();
     // console.log(e.target.house.value);
-    this.setState({
+    await this.setState({
       filterCharacters:[this.state.formInputs, ...this.state.characters],
       characters:[this.state.formInputs, ...this.state.characters],
       // characters:filterCharacters
       houses:[...this.state.houses, e.target.house.value]
-      
     })
-    console.log(this.state.formInputs)
+    
+    const data=this.state.formInputs;
+    const house=data.house;
+    console.log(house);
+    fetch('http://localhost:3001/characters',{
+      method: 'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    }).then(()=>{
+        fetch('http://localhost:3001/houses',{
+        method: 'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(house)
+      })
+    })
+
   }
 
   searchChgHandler = (e) => {
-    console.log("e.target",e.target.value);
-    console.log("state",this.state.searchValue);
     this.setState({searchValue:e.target.value})
     const newCharacters=[...this.state.characters].filter(character=>
       (character.name.toLowerCase().includes(e.target.value.toLowerCase()) || character.house.toLowerCase().includes(e.target.value.toLowerCase())))
@@ -59,7 +72,6 @@ class App extends Component {
 
   clickHandlerForHouseChange=(e, char) => {
     e.preventDefault();
-    console.log(e.target.newHouse.value);
     const newChars = [...this.state.characters]
     newChars.forEach(character=>{
       if(character===char)
@@ -77,6 +89,16 @@ class App extends Component {
     this.setState({
       editInputValue:e.target.value
     })
+  }
+
+  componentDidUpdate(prevProps, prevStates){
+    // const data=prevStates.formInputs;
+    // if(data!==)
+  //   fetch('http://localhost:3001/characters',{
+  //     method:'POST',
+  //     headers:{'Content-Tpye':'application/json'},
+  //     body:JSON.stringify({data})
+  //   })
   }
 
   componentDidMount() {

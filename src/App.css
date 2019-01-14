@@ -9,30 +9,83 @@
 
 .index-image {
   width: 100%;
-  height: 100%;
+  height: 185px;
 }
 
 .character-nav-wrap{
   vertical-align: top;
-  height: 90%;
+
+  height: auto;
+  overflow: hidden;
   width: 100%;
+  display: inline-block;
   
 }
 
 .class-container {
   position: relative;
+  display: inline-block;
   top: 5%;
   height: 90%;
   width: 75%;
+  vertical-align: top;
 }
 
 .nav-wrapper{
-  width:25%;
-  float: right;
-  display: block;
+  border: 5px solid lightgray;
+  margin-top: 50px;
+  padding: 10px;
+  /* margin-right: 2px; */
+  width:20%;
+  /* float: right; */
+  display: inline-block;
+  vertical-align: top;
+  background-image: linear-gradient(-70deg, yellow, green);
 }
 .nav-wrapper form input{
+  margin: 5px 0px 15px 0px;
+  padding: 5px;
+  background-color: lightblue;
+  height: 35px;
   width:100%
+}
+
+.nav-wrapper form{
+  font-size: 1.2em;
+  color: blue;
+  font: bold;
+}
+
+#submit{
+  background-color: #0059b3;
+  color: aqua;
+  width: 75%;
+}
+
+.add-new-char:hover, #submit:hover{
+  background-color: #003366;
+  box-shadow:10px 20px 40px grey;
+  /* box-shadow: 5px 5px 2px grey; */
+  cursor: pointer;
+}
+
+.add-new-char{
+  width: 75%;
+  height: 30px;
+  background-color: #003366;
+  color: aqua;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.search-input input{
+  background-color: lightblue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size:1.2em;
+  height: 40px;
+  padding:5px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .list {
@@ -51,14 +104,32 @@
   list-style-type: none;
 }
 
+.character-detail li{
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
 .houseContainer {
+  vertical-align: top;
+  display: inline-block;
   position: relative;
   top: 10%;
+  height: auto;
+  overflow: hidden;
   width: 100%;
-  height: 100%;
+  /* border-top:10px solid darkgreen; */
 }
+
+.house-header{
+  margin: 0px 30px;
+  color: aqua;
+  margin-top: 50px;
+  
+}
+
 .house {
-  /* margin:'5px'; */
+  vertical-align: top;
+  margin-top: 20px;
   width: 40%;
   height: 80%;
   display: inline-block;
@@ -68,11 +139,11 @@
 }
 
 .house-image {
-  width: 20%;
-  height: 80%;
+  width: 160px;
+  height: 150px;
   display: inline-block;
-  margin: auto;
-  padding-left: 45px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .house-img-div{

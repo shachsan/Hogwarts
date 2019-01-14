@@ -17,7 +17,7 @@ export default class CharacterContainer extends Component {
   render() {
     return (
       <div className='class-container'>
-        <h1>Character Container</h1>
+        <h1>Hogwarts Characters</h1>
           {this.characterTiles()}
       </div>)
   }
